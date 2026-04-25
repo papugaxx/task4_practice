@@ -2,7 +2,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-sport-project-key'
+SECRET_KEY = 'django-insecure-time-app-key'
 DEBUG = True
 ALLOWED_HOSTS = []
 

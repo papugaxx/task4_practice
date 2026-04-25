@@ -1,49 +1,22 @@
 from django.shortcuts import render
+from django.utils import timezone
 
 
-def home(request):
-    return render(request, 'viewapp/page.html', {
-        'title': 'Головна',
-        'text': 'Спортивний вебдодаток з розділами про популярні види спорту.',
-        'items': [
-            'Футбол',
-            'Хокей',
-            'Баскетбол',
-        ]
-    })
+def index(request):
+    now = timezone.localtime()
+    hour = now.hour
 
+    if 5 <= hour < 12:
+        greeting = 'Доброго ранку!'
+    elif 12 <= hour < 18:
+        greeting = 'Добрий день!'
+    else:
+        greeting = 'Добрий вечір!'
 
-def football(request):
-    return render(request, 'viewapp/page.html', {
-        'title': 'Футбол',
-        'text': 'Футбол — командний вид спорту, у якому дві команди змагаються за перемогу, забиваючи мʼяч у ворота суперника.',
-        'items': [
-            'У команді на полі грає 11 футболістів.',
-            'Матч складається з двох таймів по 45 хвилин.',
-            'Футбол є одним із найпопулярніших видів спорту у світі.',
-        ]
-    })
+    context = {
+        'greeting': greeting,
+        'current_date': now.strftime('%d.%m.%Y'),
+        'current_time': now.strftime('%H:%M:%S'),
+    }
 
-
-def hockey(request):
-    return render(request, 'viewapp/page.html', {
-        'title': 'Хокей',
-        'text': 'Хокей — швидкий командний вид спорту, у якому гравці пересуваються по льоду та намагаються закинути шайбу у ворота.',
-        'items': [
-            'Гравці використовують ключки та шайбу.',
-            'Хокей потребує швидкості, сили та хорошої реакції.',
-            'Матч складається з трьох періодів.',
-        ]
-    })
-
-
-def basketball(request):
-    return render(request, 'viewapp/page.html', {
-        'title': 'Баскетбол',
-        'text': 'Баскетбол — командна гра, у якій гравці набирають очки, закидаючи мʼяч у кошик суперника.',
-        'items': [
-            'У баскетболі важливі точність, швидкість і командна робота.',
-            'На майданчику грають дві команди.',
-            'Очки нараховуються за влучні кидки у кошик.',
-        ]
-    })
+    return render(request, 'viewapp/time.html', context)
