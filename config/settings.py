@@ -2,7 +2,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-hello-world-project-key'
+SECRET_KEY = 'django-insecure-sport-project-key'
 DEBUG = True
 ALLOWED_HOSTS = []
 
@@ -56,5 +56,6 @@ LANGUAGE_CODE = 'uk'
 TIME_ZONE = 'Europe/Kyiv'
 USE_I18N = True
 USE_TZ = True
+
 STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

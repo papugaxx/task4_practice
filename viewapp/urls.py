@@ -2,11 +2,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.hello_en),
-    path('fr', views.hello_fr),
-    path('fr/', views.hello_fr),
-    path('de', views.hello_de),
-    path('de/', views.hello_de),
-    path('es', views.hello_es),
-    path('es/', views.hello_es),
+    path('', views.home),
+    path('football', views.football),
+    path('football/', views.football),
+    path('hockey', views.hockey),
+    path('hockey/', views.hockey),
+    path('basketball', views.basketball),
+    path('basketball/', views.basketball),
 ]
